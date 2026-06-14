@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Cloud Log Analyzer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo h1 {
+      color: #38bdf8;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .logo p {
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .flash {
+      background: #450a0a;
+      border: 1px solid #dc2626;
+      color: #fca5a5;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #f1f5f9;
+      font-size: 14px;
+      margin-bottom: 18px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: #38bdf8; }
+    button {
+      width: 100%;
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #7dd3fc; }
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      color: #64748b;
+      font-size: 13px;
+    }
+    .footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <h1>🔐 Cloud Log Analyzer</h1>
+      <p>Secure admin portal — sign in to continue</p>
+    </div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+    <form method="POST">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Enter your username" required autofocus>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Enter your password" required>
+      <button type="submit">Sign In</button>
+    </form>
+    <div class="footer">
+      Don't have an account? <a href="/register">Register here</a>
+    </div>
+  </div>
+</body>
+</html>

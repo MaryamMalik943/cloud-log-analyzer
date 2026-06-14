@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secure Cloud Log Analyzer</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+
+    width:500px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+
+    text-align:center;
+
+    color:white;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#60a5fa;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.upload-box{
+
+    border:2px dashed #60a5fa;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    margin-bottom:25px;
+
+    transition:0.3s;
+}
+
+.upload-box:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+.upload-icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+input[type=file]{
+
+    width:100%;
+
+    color:white;
+
+    margin-top:15px;
+}
+
+.btn{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#3b82f6;
+
+    border:none;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#2563eb;
+}
+
+.info{
+    margin-top:20px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.logout{
+    margin-top:25px;
+}
+
+.logout a{
+    color:#ef4444;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        Secure Cloud Log Analyzer
+    </div>
+
+    <div class="subtitle">
+        Cloud-Based Log Processing & Analytics
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                ☁️
+            </div>
+
+            <h3>Upload Server Log File</h3>
+
+            <p style="margin-top:10px;color:#cbd5e1;">
+                Select a .log file to analyze
+            </p>
+
+            <input
+                type="file"
+                name="logfile"
+                required>
+
+        </div>
+
+        <button class="btn" type="submit">
+            Analyze Log File
+        </button>
+
+    </form>
+
+    <div class="info">
+        Supported Format: .log files
+    </div>
+
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>
