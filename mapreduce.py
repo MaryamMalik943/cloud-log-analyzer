@@ -1,5 +1,4 @@
 import re
-from multiprocessing import Pool
 from collections import defaultdict
 
 # ---- SPLIT ----
@@ -37,9 +36,10 @@ def reduce_group(key_values):
 # ---- FULL PIPELINE ----
 def run_mapreduce(filepath):
     chunks = split_file(filepath)
-    with Pool(processes=4) as pool:
-        mapped = pool.map(map_chunk, chunks)
+    # Map phase (sequential for cloud compatibility)
+    mapped = [map_chunk(chunk) for chunk in chunks]
+    # Shuffle phase
     shuffled = shuffle(mapped)
-    with Pool(processes=4) as pool:
-        reduced = pool.map(reduce_group, list(shuffled.items()))
+    # Reduce phase
+    reduced = [reduce_group(item) for item in shuffled.items()]
     return dict(reduced)
